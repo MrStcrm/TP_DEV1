@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div class="container">
+    <h1 class="fs-4 p-2">Ajouter une nouvelle catégorie</h1>
+    <form method="post" action="{% url 'ajoutCategorie' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom de la catégorie</label>
+            <input type="text" class="form-control" id="nom" name="nom" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description de la catégorie</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter la catégorie</button>
+    </form>
+   </div>
+{% endblock %}

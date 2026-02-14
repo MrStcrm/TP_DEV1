@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div class="container">
+    <h1 class="fs-4 p-2">Modifier un produit existant</h1>
+    <form method="post" action="{% url 'modifProduit' produit.id %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom du produit</label>
+            <input type="text" class="form-control" id="nom" name="nom" value="{{ produit.nom }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description du produit</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required>{{ produit.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix du produit</label>
+            <input type="number" step="0.01" class="form-control" id="prix" name="prix" value="{{ produit.prix }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="categorie" class="form-label">Catégorie</label>
+            <select class="form-select" id="categorie" name="categorie" required>
+                {% for categorie in categories %}
+                <option value="{{ categorie.id }}" {% if categorie.id == produit.categorie.id %}selected{% endif %}>{{ categorie.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Modifier le produit</button>
+    </form>
+   </div>
+{% endblock %}

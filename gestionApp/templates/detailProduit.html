@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container w-75 mt-5 p-5 shadow rounded">
+    <h1 class="fs-4 p-2">Détails du produit</h1>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title   ">{{ produit.nom }}</h5>
+            <p class="card-text">{{ produit.description }}</p>
+            <p class="card-text"><strong>Prix:</strong> {{ produit.prix }}
+            </p>
+            <p class="card-text"><strong>Catégorie:</strong> {{ produit.categorie.nom }}</p>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+</div>
+{% endblock %}
