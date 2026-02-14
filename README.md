@@ -17,9 +17,9 @@ django-admin startapp bibliotheque
 
 7)Mettre le nom de l'application dans Installed Apps de settings
 
-8) Faire un:
+8) (Pour tester)Faire un:
 def accueil(request):
-    return HttpResponse("<h1>Yo</h1>")
+    return HttpResponse("<h1>Bonjour!</h1>")
 
 dans views.py du nom_app
 
